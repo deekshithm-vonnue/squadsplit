@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SquadSplit
 
-## Getting Started
+Split a group of players into balanced teams. Enter each player's rating and
+position, and SquadSplit builds fair teams for any number of players, including
+odd counts. Football first, with other games planned.
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js (App Router), TypeScript, Tailwind CSS
+- Vitest for tests
+- Husky, lint-staged and commitlint for commit checks
+- Planned: PostgreSQL with Prisma, optional sign-in with Auth.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Requires Node 24 and pnpm.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    pnpm install
+    cp .env.example .env.local
+    pnpm dev
 
-## Learn More
+Open http://localhost:3000.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command          | What it does                                       |
+| ---------------- | -------------------------------------------------- |
+| `pnpm dev`       | Start the dev server                               |
+| `pnpm build`     | Production build                                   |
+| `pnpm lint`      | Run ESLint                                         |
+| `pnpm typecheck` | Run the TypeScript compiler without emitting files |
+| `pnpm test`      | Run tests once                                     |
+| `pnpm check`     | Lint, typecheck and test, the same as CI           |
+| `pnpm format`    | Format the code with Prettier                      |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Workflow
 
-## Deploy on Vercel
+- Work on `feat/*` or `chore/*` branches and open a PR into `staging`.
+- Promote tested work from `staging` to `main` with a PR.
+- Commits follow `type(scope): summary`, checked by commitlint.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `.env.example`. Never commit real values.
