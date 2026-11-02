@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 24
+    commands:
+      - corepack enable
+      - pnpm install --frozen-lockfile
+  build:
+    commands:
+      - pnpm peers check
+      - pnpm check
+      - pnpm build

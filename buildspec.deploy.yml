@@ -1,0 +1,18 @@
+version: 0.2
+env:
+  secrets-manager:
+    VERCEL_TOKEN: squadsplit/vercel:token
+    VERCEL_ORG_ID: squadsplit/vercel:orgId
+    VERCEL_PROJECT_ID: squadsplit/vercel:projectId
+phases:
+  install:
+    runtime-versions:
+      nodejs: 24
+    commands:
+      - corepack enable
+      - pnpm install --frozen-lockfile
+  build:
+    commands:
+      - pnpm dlx vercel pull --yes --environment=$VERCEL_ENV --token=$VERCEL_TOKEN
+      - pnpm dlx vercel build $VERCEL_PROD_FLAG --token=$VERCEL_TOKEN
+      - pnpm dlx vercel deploy --prebuilt $VERCEL_PROD_FLAG --token=$VERCEL_TOKEN
