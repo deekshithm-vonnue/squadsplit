@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "next": "16.4.3",
-    "react": "19.3.0",
+    "react": "19.3.1",
     "react-dom": "19.3.0",
     "zod": "^4.6.7",
     "zustand": "^5.0.16"
@@ -39,7 +39,7 @@
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
     "tailwindcss": "^4",
-    "typescript": "^5",
+    "typescript": "^6",
     "vitest": "^5.0.5"
   },
   "lint-staged": {
